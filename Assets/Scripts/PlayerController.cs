@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
+    private Vector2 startPoint;
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
@@ -55,7 +57,14 @@ public class PlayerController : MonoBehaviour
      
         }
     }
-
+    private void Respawn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    private void Start()
+    {
+        startPoint= transform.position;
+    }
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
