@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
             Destroy(collision.gameObject);
             cherries++;
-            cherriesText.text = "Cherries: " + cherries;
+            cherriesText.text = "Cherries: " + cherries +"/"+ (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
         }
     }
     //enemy triggle
@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
             }
      
         }
+        if (collision.gameObject.CompareTag("trap"))
+        {
+            isHurted = true;
+        }
     }
     private void Respawn()
     {
@@ -63,7 +67,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        startPoint= transform.position;
+        cherriesText.text = "Cherries: 0/" + (2*(SceneManager.GetActiveScene().buildIndex+1)+3);
+        startPoint = transform.position;
     }
     void Update()
     {
@@ -102,6 +107,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         debug = rb.velocity;
+        Debug.Log(horizontal*speed);
         isJumping = !IsGrounded();
         if (isFalling && IsGrounded())
         {
