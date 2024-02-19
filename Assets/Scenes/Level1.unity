@@ -14487,7 +14487,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.627, y: 1.01, z: -10}
+  m_LocalPosition: {x: 13.626999, y: 1.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20759,10 +20759,6 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 4aeaa70372e426146b03fae922b77ac7, type: 2}
-    - target: {fileID: 986745851116832262, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1137351158577399351, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
       propertyPath: cherriesText
       value: 
@@ -20807,10 +20803,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7423355462952201318, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 4aeaa70372e426146b03fae922b77ac7, type: 2}
     - target: {fileID: 8946908877232207919, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
       propertyPath: m_Name
       value: player
@@ -21127,7 +21119,7 @@ PrefabInstance:
       objectReference: {fileID: 1880764961}
     - target: {fileID: 8236500876659311281, guid: 1bc273bf005287941a9a67c1cc022cf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.627
+      value: 13.626999
       objectReference: {fileID: 0}
     - target: {fileID: 8236500876659311281, guid: 1bc273bf005287941a9a67c1cc022cf8, type: 3}
       propertyPath: m_LocalPosition.y
