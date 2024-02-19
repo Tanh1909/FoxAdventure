@@ -42,11 +42,29 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            FrogController frog=collision.gameObject.GetComponent<FrogController>();
+           
             if (isFalling)
             {
-                frog.Triggle();
-                
+
+                if (collision.gameObject.GetComponent<FrogController>() != null)
+                {
+                    FrogController frog = collision.gameObject.GetComponent<FrogController>();
+               
+                    frog.Triggle();
+                }
+              
+                else if (collision.gameObject.GetComponent<eagleController>() != null)
+                {
+                    eagleController eagle = collision.gameObject.GetComponent<eagleController>();
+                 
+                    eagle.Triggle();
+                }
+                else if (collision.gameObject.GetComponent<OpController>() != null)
+                {
+                    OpController op = collision.gameObject.GetComponent<OpController>();
+
+                    op.Triggle();
+                }
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                
             }
