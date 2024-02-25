@@ -33,8 +33,17 @@ public class PlayerController : MonoBehaviour
         {
 
             Destroy(collision.gameObject);
-            cherries++;
-            cherriesText.text = "Cherries: " + cherries +"/"+ (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                cherries++;
+                cherriesText.text = "Cherries: " + cherries + "/1";
+            }
+            else
+            {
+                cherries++;
+                cherriesText.text = "Cherries: " + cherries + "/" + (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
+            }
+           
         }
     }
     //enemy triggle
@@ -49,7 +58,7 @@ public class PlayerController : MonoBehaviour
                 if (collision.gameObject.GetComponent<FrogController>() != null)
                 {
                     FrogController frog = collision.gameObject.GetComponent<FrogController>();
-               
+                    
                     frog.Triggle();
                 }
               
@@ -85,7 +94,16 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        cherriesText.text = "Cherries: 0/" + (2*(SceneManager.GetActiveScene().buildIndex+1)+3);
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            cherriesText.text = "Cherries: 0/1" ;
+        }
+        else
+        {
+            cherriesText.text = "Cherries: 0/" + (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
+        }
+
+       
         startPoint = transform.position;
     }
     void Update()

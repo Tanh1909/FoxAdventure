@@ -13,7 +13,11 @@ public class FinishPoint : MonoBehaviour
         {
             Debug.Log("Finish Map");
             Debug.Log(player.cherries);
-            if (player.cherries == (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3))
+            if (SceneManager.GetActiveScene().name == "Tutorial" && player.cherries==1)
+            {
+                SceneManager.LoadSceneAsync(5);
+            }
+            else if (player.cherries == (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3))
             {
                 UnlockNewLevel();
                 SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);

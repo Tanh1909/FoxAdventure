@@ -43,7 +43,7 @@ public class eagleController : MonoBehaviour
     }
     public void Triggle()
     {
-        Debug.Log("EO");
+        coll.isTrigger=true;
         animator.SetTrigger("Death");
     }
     private void Death()

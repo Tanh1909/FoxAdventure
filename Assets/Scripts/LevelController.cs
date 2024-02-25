@@ -21,7 +21,15 @@ public class LevelController : MonoBehaviour
     }
     public void OpenLevel(int levelID)
     {
-        string levelName = "level" + levelID;
-        SceneManager.LoadScene(levelName);
+        if (levelID == 6)
+        {
+            SceneManager.LoadScene(6);
+        }
+        else
+        {
+            string levelName = "level" + levelID;
+            SceneManager.LoadScene(levelName);
+        }
+        
     }
 }

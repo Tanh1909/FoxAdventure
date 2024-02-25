@@ -69,7 +69,7 @@ public class OpController : MonoBehaviour
         }
     }
     public void Triggle()
-    {
+    {coll.isTrigger = true;
         animator.SetTrigger("Death");
     }
     private void Death()
