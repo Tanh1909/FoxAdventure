@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 debug;
     [SerializeField] private Text cherriesText;
 
+    AudioController audioController;
     
     public Animator animator;
     public int cherries = 0;
@@ -26,6 +27,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
 
+    private void Awake()
+    {
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+
+    }
+    public void frezen()
+    {
+        speed = 0;
+        jumpingPower = 0;
+    }
+
     //cherry triggle
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,11 +47,13 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             if (SceneManager.GetActiveScene().name == "Tutorial")
             {
+                audioController.PlaySFX(audioController.cherryClip);
                 cherries++;
                 cherriesText.text = "Cherries: " + cherries + "/1";
             }
             else
             {
+                audioController.PlaySFX(audioController.cherryClip);
                 cherries++;
                 cherriesText.text = "Cherries: " + cherries + "/" + (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
             }
@@ -54,7 +68,7 @@ public class PlayerController : MonoBehaviour
            
             if (isFalling)
             {
-
+                audioController.PlaySFX(audioController.killClip);
                 if (collision.gameObject.GetComponent<FrogController>() != null)
                 {
                     FrogController frog = collision.gameObject.GetComponent<FrogController>();
@@ -79,13 +93,16 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                speed = 0;jumpingPower = 0;
                 isHurted = true;
             }
      
         }
         if (collision.gameObject.CompareTag("trap"))
         {
+            speed = 0; jumpingPower = 0;
             isHurted = true;
+
         }
     }
     private void Respawn()
@@ -94,6 +111,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+      
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             cherriesText.text = "Cherries: 0/1" ;
@@ -132,6 +150,7 @@ public class PlayerController : MonoBehaviour
      
         //kiem tra co dang chay khong
         isRunning = Mathf.Abs(horizontal) > 0f;
+    
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isJumping", isJumping);
         animator.SetBool("IsFalling", isFalling);
@@ -141,9 +160,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+   
+        
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        debug = rb.velocity;
-        Debug.Log(horizontal*speed);
+        
         isJumping = !IsGrounded();
         if (isFalling && IsGrounded())
         {
@@ -166,5 +186,17 @@ public class PlayerController : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-    
+    public void RunAudio()
+    {
+        audioController.PlaySFX(audioController.runClip);
+    }
+    public void JumpAudio()
+    {
+        audioController.PlaySFX(audioController.jumpClip); 
+    }
+    public void deathAudio()
+    {
+        audioController.PlaySFX(audioController.hurtClip); 
+    }
+
 }

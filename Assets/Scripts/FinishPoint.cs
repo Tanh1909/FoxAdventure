@@ -5,32 +5,56 @@ using UnityEngine.SceneManagement;
 public class FinishPoint : MonoBehaviour
 {
     public PlayerController player;
+    AudioController audioController;
 
+    private void Awake()
+    {
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("player"))
         {
-            Debug.Log("Finish Map");
-            Debug.Log(player.cherries);
+           
+      
             if (SceneManager.GetActiveScene().name == "Tutorial" && player.cherries==1)
             {
+                player.frezen();
+                audioController.PlaySFX(audioController.finishClip);
                 SceneManager.LoadSceneAsync(5);
             }
             else if (player.cherries == (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3))
             {
+                Debug.Log("finish");
+                player.frezen();
+                audioController.PlaySFX(audioController.finishClip);
                 UnlockNewLevel();
-                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+                StartCoroutine(DelayedFunction());
+              
+              
             }
         }
     }
     public void UnlockNewLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        if (SceneManager.GetActiveScene().buildIndex <=4)
         {
-            PlayerPrefs.SetInt("ReachedIndex",SceneManager.GetActiveScene().buildIndex+1);
+            Debug.Log("Unlock new level");
             PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
             PlayerPrefs.Save();
         }
     }
+    IEnumerator DelayedFunction()
+    {
+        yield return new WaitForSeconds(1f); 
+        NextLevel();
+  
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+ 
 }

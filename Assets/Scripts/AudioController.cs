@@ -10,12 +10,25 @@ public class AudioController : MonoBehaviour
     public AudioClip musicClip;
     public AudioClip cherryClip;
     public AudioClip hurtClip;
+    public AudioClip runClip;
+    public AudioClip jumpClip;
+    public AudioClip killClip;
+    public AudioClip finishClip;
+
+
+    
     void Start()
     {
+       
         musicAudioSource.clip = musicClip;
         musicAudioSource.Play();
         
     }
+    public void PlaySFX(AudioClip audioClip)
+    {
+        vfxAudioSource.PlayOneShot(audioClip);
+    }
+    
 
-  
+
 }
