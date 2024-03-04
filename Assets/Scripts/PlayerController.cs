@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             {
                 audioController.PlaySFX(audioController.cherryClip);
                 cherries++;
-                cherriesText.text = "Cherries: " + cherries + "/" + (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
+                cherriesText.text = "Cherries: " + cherries + "/" + (2 * (SceneManager.GetActiveScene().buildIndex) + 3);
             }
            
         }
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            cherriesText.text = "Cherries: 0/" + (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
+            cherriesText.text = "Cherries: 0/" + (2 * (SceneManager.GetActiveScene().buildIndex) + 3);
         }
 
        

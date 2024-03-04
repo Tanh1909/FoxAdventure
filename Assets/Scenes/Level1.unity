@@ -20602,6 +20602,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1137351158577399351, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
+      propertyPath: debug.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137351158577399351, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
       propertyPath: cherriesText
       value: 
       objectReference: {fileID: 1457345071}
