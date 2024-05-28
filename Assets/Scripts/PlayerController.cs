@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
     public Vector2 debug;
     [SerializeField] private Text cherriesText;
+    [SerializeField] private Text levelText;
+    [SerializeField] private Text guideText;
 
     AudioController audioController;
     
@@ -55,9 +57,21 @@ public class PlayerController : MonoBehaviour
             {
                 audioController.PlaySFX(audioController.cherryClip);
                 cherries++;
-                cherriesText.text = "Cherries: " + cherries + "/" + (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
+                cherriesText.text = "Cherries: " + cherries + "/" + (2 * (SceneManager.GetActiveScene().buildIndex) + 3);
             }
            
+        }
+        if (collision.gameObject.CompareTag("guide"))
+        {
+            guideText.text = "Hãy dùng quái làm bước đệm";
+        }
+       
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("guide"))
+        {
+            guideText.text = "";
         }
     }
     //enemy triggle
@@ -118,7 +132,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            cherriesText.text = "Cherries: 0/" + (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3);
+            cherriesText.text = "Cherries: 0/" + (2 * (SceneManager.GetActiveScene().buildIndex) + 3);
+            levelText.text="Level: " + (SceneManager.GetActiveScene().buildIndex);
         }
 
        

@@ -20240,6 +20240,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4261848649111208203, guid: 328628cd53c6c374983a72a2171a01fe, type: 3}
   m_PrefabInstance: {fileID: 8658375331633025123}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1615994629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2076101068333265223, guid: b4f67f4a4d754e64290cbab344c25f11, type: 3}
+  m_PrefabInstance: {fileID: 2027739193677006465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1675328101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20597,10 +20608,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 986745851116832262, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
+    - target: {fileID: 1137351158577399351, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1615994629}
     - target: {fileID: 1137351158577399351, guid: 72598d2f7fa0c0b4d942292fa84be29a, type: 3}
       propertyPath: cherriesText
       value: 

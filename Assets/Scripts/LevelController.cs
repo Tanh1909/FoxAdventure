@@ -8,7 +8,6 @@ public class LevelController : MonoBehaviour
     public Button[] buttons;
 
 
-
   
     private void Awake()
     {
@@ -41,5 +40,6 @@ public class LevelController : MonoBehaviour
         }
         
     }
+    
     
 }

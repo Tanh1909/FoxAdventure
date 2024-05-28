@@ -9,6 +9,7 @@ TagManager:
   - player
   - trap
   - Audio
+  - guide
   layers:
   - Default
   - TransparentFX

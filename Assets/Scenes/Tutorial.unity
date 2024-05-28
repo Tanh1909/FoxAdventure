@@ -1046,7 +1046,9 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3047198693915467433, guid: b4f67f4a4d754e64290cbab344c25f11, type: 3}
+    - {fileID: 7122070432480574663, guid: b4f67f4a4d754e64290cbab344c25f11, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4540054790454816744, guid: b4f67f4a4d754e64290cbab344c25f11, type: 3}
       insertIndex: -1

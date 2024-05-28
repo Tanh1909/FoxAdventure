@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug: {x: 0, y: 0}
   cherriesText: {fileID: 0}
+  levelText: {fileID: 0}
   animator: {fileID: 61721099305943266}
   cherries: 0
   isJumping: 0

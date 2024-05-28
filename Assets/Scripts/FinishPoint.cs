@@ -23,9 +23,9 @@ public class FinishPoint : MonoBehaviour
             {
                 player.frezen();
                 audioController.PlaySFX(audioController.finishClip);
-                SceneManager.LoadSceneAsync(5);
+                SceneManager.LoadSceneAsync(1);
             }
-            else if (player.cherries == (2 * (SceneManager.GetActiveScene().buildIndex + 1) + 3))
+            else if (player.cherries == (2 * (SceneManager.GetActiveScene().buildIndex) + 3))
             {
                 Debug.Log("finish");
                 player.frezen();
