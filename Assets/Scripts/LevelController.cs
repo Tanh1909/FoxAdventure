@@ -29,9 +29,9 @@ public class LevelController : MonoBehaviour
     }
     public void OpenLevel(int levelID)
     {
-        if (levelID == 6)
+        if (levelID == 7)
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(7);
         }
         else
         {
